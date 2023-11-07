@@ -1,5 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
+import { useState } from 'react';
 
 const loginYn  = true;
 const user = {
@@ -13,6 +14,21 @@ const devices = [
   { "pid": "3", "title" : "Apple Mac Studio", "price" : "300000000"}
 ]
 
+// clickButton with steps
+function ClickButton({steps}) {
+
+  const [count, addCount] = useState(0);
+  function click() {
+    addCount(count+parseInt(steps));
+  }
+
+  return (
+    <button onClick={click}>COUNT!! {count} (step: {steps})</button>
+  );
+
+}
+
+// general buttons
 function Button() {
   
   function clickEvent() {
@@ -24,10 +40,11 @@ function Button() {
   );
 }
 
+// main ACTIVITY
 function App() {
 
   const items = devices.map(el =>
-    <li key={el.pid}>{el.title}</li>
+    <li key={el.pid}>{el.title} / Price: {el.price}</li>
   );
 
   return (
@@ -48,11 +65,14 @@ function App() {
       </header>
       <div>
         <h2>{user.name} {loginYn && ' 어드민'}</h2>
-        <img src={user.logo}></img>
+        <img src={user.logo} alt="replace"></img>
         <Button></Button>
         <ul>
           {items}
         </ul>
+        <ClickButton steps="1"></ClickButton>
+        <ClickButton steps="2"></ClickButton>
+
       </div>
     </div>
   );
