@@ -1,5 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
+import Component from './component/Component.js';
 import { useState } from 'react';
 
 const loginYn  = true;
@@ -64,7 +65,7 @@ function App() {
         </a>
       </header>
       <div>
-        <h2>{user.name} {loginYn && ' 어드민'}</h2>
+        <h2>{user.name} {loginYn && '어드민'}</h2>
         <img src={user.logo} alt="replace"></img>
         <Button></Button>
         <ul>
@@ -72,7 +73,7 @@ function App() {
         </ul>
         <ClickButton steps="1"></ClickButton>
         <ClickButton steps="2"></ClickButton>
-
+        <Component></Component>
       </div>
     </div>
   );
