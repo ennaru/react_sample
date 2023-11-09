@@ -1,7 +1,12 @@
 import logo from './logo.svg';
 import './App.css';
-import Component from './component/Component.js';
 import { useState } from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Component from './component/Component.js';
+import Header from './path/Header.js'
+import Practice from './path/Practice.js'
+import {Error404} from './error/Error404.js'
+
 
 const loginYn  = true;
 const user = {
@@ -41,9 +46,7 @@ function Button() {
   );
 }
 
-// main ACTIVITY
-function App() {
-
+function Root() {
   const items = devices.map(el =>
     <li key={el.pid}>{el.title} / Price: {el.price}</li>
   );
@@ -74,7 +77,23 @@ function App() {
         <ClickButton steps="1"></ClickButton>
         <ClickButton steps="2"></ClickButton>
         <Component></Component>
+        </div>
       </div>
+  );
+}
+
+// main ACTIVITY
+function App() {
+
+  return (
+    <div className="App">
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Root/>}></Route>
+          <Route path="/practice" element={<Practice/>}></Route>
+          <Route path="*" element={<Error404/>}></Route>
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
