@@ -5,7 +5,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Component from './component/Component.js';
 import Header from './path/Header.js'
 import Practice from './path/Practice.js'
-import {Error404} from './error/Error404.js'
+import {Error404} from './error/Error.js'
 
 
 const loginYn  = true;

@@ -9,3 +9,12 @@ export function Error404(userInfo) {
         </div>
    );
 }
+
+export function Error500(userInfo) {
+    return (
+        <div>
+            <h3>500 internal Server Error</h3>
+            <p>페이지 호출 중 서버에서 오류가 발생하였습니다.</p>
+        </div>
+   );
+}
