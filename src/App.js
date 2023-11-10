@@ -1,12 +1,13 @@
 import logo from './logo.svg';
-import './App.css';
 import { useState } from 'react';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Component from './component/Component.js';
-import Header from './path/Header.js'
+import { Header, Footer } from './component/Component.js';
+
 import Practice from './path/Practice.js'
+import { TestPage } from './pages/TestPage.js'
+
 import { Error404 } from './error/Error.js'
 
 
@@ -92,29 +93,16 @@ function Root() {
         </ul>
         <ClickButton steps="1"></ClickButton>
         <ClickButton steps="2"></ClickButton>
-        <Component></Component>
       </div>
     </div>
   );
 }
 
-function Testpage() {
+function Root2() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Header></Header>
+      <Footer></Footer>
     </div>
   );
 }
@@ -126,8 +114,8 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Root />}></Route>
-          <Route path="/testpage" element={<Testpage />}></Route>
+          <Route path="/" element={<Root2 />}></Route>
+          <Route path="/testpage" element={<TestPage />}></Route>
           <Route path="/practice" element={<Practice />}></Route>
           <Route path="*" element={<Error404 />}></Route>
         </Routes>
@@ -137,4 +125,3 @@ function App() {
 }
 
 export default App;
-
