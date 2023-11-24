@@ -1,5 +1,16 @@
+.h1,h2,h3,h4,h5,h6,input,select,p,button,a,label {
+    font-family: 'Noto Sans KR', sans-serif;
+}
 
 .container {
     padding: 1em;
-    font-family: 'Noto Sans KR', sans-serif;
+}
+
+input {
+    padding:0.4em;
+    border-radius: 0.6em;
+}
+
+.input-area {
+    padding: 0.2em 0;
 }
