@@ -9,8 +9,25 @@
 input {
     padding:0.4em;
     border-radius: 0.6em;
+    font-size: 0.9em;
 }
 
 .input-area {
     padding: 0.2em 0;
+}
+
+.input-area label {
+    display: block;
+    padding-bottom: 0.25em;
+}
+
+.input-group {
+    margin-bottom: 1em;
+    padding: 0.5em 1em;
+    border: solid 1px gray;
+}
+
+.input-group ul {
+    list-style-type: none;
+    padding-inline-start: 0;
 }

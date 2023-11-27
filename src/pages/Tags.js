@@ -27,20 +27,51 @@ export function Tags() {
   );
 }
 
-function InputGroup({children}) {
-  console.log(children);
+function Title(props) {
   return (
-    <form name={children.name}>
-      {children}
-    </form>
+    <h3>{props.children}</h3>
   );
 }
- 
+
+function InputGroup(props) {
+  return (
+    <div className="input-group">
+      <h3>{props.title}</h3>
+      <form name={props.name}>
+        {props.children}
+      </form>
+    </div>
+
+  );
+}
+
+function CheckboxGroup(props) {
+  return (
+    <div className="input-group">
+      <h3>{props.title}</h3>
+      <form name={props.name}>
+        {props.children}
+      </form>
+      <input type="text" name="queryString" disabled></input>
+    </div>
+
+  );
+}
+
 function Text(props) {
   const type = props.numeric ? "number" : "text";
   return (
     <div className="input-area">
-      <label>{props.label}: <input type={type} placeholder={props.placeholder} disabled={props.disabled} maxLength={props.maxLength}></input></label>
+      <label>{props.label}</label>
+      <input type={type} placeholder={props.placeholder} disabled={props.disabled} maxLength={props.maxLength}></input>
+    </div>
+  );
+}
+
+function Check(props) {
+  return (
+    <div className="input-area">
+      <label><input type="checkbox" name={props.name} value={props.value} disabled={props.disabled}></input>{props.label}</label>
     </div>
   );
 }
@@ -49,40 +80,25 @@ export function InputTags() {
 
   return (
     <div className="container">
-      <div>
-        <InputGroup name="skytrax">
-          <Text label="이름" disabled numeric/>
-          <Text label="코드" placeholder="react" numeric/>
-          <Text label="식별번호" placeholder="react" maxLength="4"/>
-        </InputGroup>
-        <div className="input-area">
-          <ul>
-            <li><label><input type="checkbox"></input>[필수] 이용약관 1</label></li>
-            <li><label><input type="checkbox"></input>[필수] 이용약관 2</label></li>
-            <li><label><input type="checkbox"></input>[필수] 개인 신용정보 제공 정보 동의서</label></li>
-            <li><label><input type="checkbox"></input>[선택] 마케팅 전용 개인 신용정보 제공 정보 동의서</label></li>
-          </ul>
-        </div>
-        <div className="input-area">
-          <ul>
-            <li><label><input type="radio" name="rad1"></input>남성</label></li>
-            <li><label><input type="radio" name="rad1"></input>여성</label></li>
-            <li><label><input type="radio" name="rad1"></input>기타</label></li>
-          </ul>
-        </div>
-      </div>
-      <div className="input-area">
-        <input type="file"></input>
-      </div>
-      <div>
-        <a href="/">This is A Tag</a>
-        <a href="/">This is A Tag</a>
-        <a href="/">This is A Tag</a>
-        <a href="/">This is A Tag</a>
-      </div>
-      <div>
-
-      </div>
+      <InputGroup name="textGroup" title="input[type=text]">
+        <Text label="이름" disabled numeric />
+        <Text label="코드" placeholder="react" numeric />
+        <Text label="식별번호" placeholder="react" maxLength="4" />
+      </InputGroup>
+      <CheckboxGroup name="checkboxGroup" title="input[type=checkbox]">
+        <Check label="전화" name="tel" value="trms1"/>
+        <Check label="문자" name="sms" value="trms2"/>
+        <Check label="이메일" name="email" value="trms3"/>
+      </CheckboxGroup>
+      <InputGroup name="buttonGroup">
+        <Title>[type="radio"]</Title>
+        <ul>
+          <li><label><input type="radio" name="rad1"></input>남성</label></li>
+          <li><label><input type="radio" name="rad1"></input>여성</label></li>
+          <li><label><input type="radio" name="rad1"></input>기타</label></li>
+        </ul>
+        <p>type="radio"인 태그는 name을 설정하여 중복 선택을 막습니다.</p>
+      </InputGroup>
     </div>
   );
 }
