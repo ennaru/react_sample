@@ -6,6 +6,7 @@ import { useState } from 'react';
 import './common/Default.css';
 
 // page import
+import TestPage from './pages/TestPage.js';
 import ReactDefaultPage from './pages/react/ReactDefaultPage.js';
 import {Tags, InputTags} from './pages/Tags.js';
 
@@ -77,6 +78,8 @@ function App() {
           <Route path="/" element={<Test />} />
           <Route path="/tags" element={<Tags />} />
           <Route path="/tags/input" element={<InputTags />} />
+
+          <Route path="/testpage" element={<TestPage />} />
           <Route path="/react_default" element={<ReactDefaultPage />}/>
         </Routes>
       </BrowserRouter>
