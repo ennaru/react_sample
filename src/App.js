@@ -8,6 +8,7 @@ import './common/Default.css';
 // page import
 import TestPage from './pages/TestPage.js';
 import ReactDefaultPage from './pages/react/ReactDefaultPage.js';
+import {ComponentFace} from './pages/ComponentFace.js';
 import {Tags, InputTags} from './pages/Tags.js';
 
 const loginYn  = true;
@@ -76,8 +77,11 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Test />} />
+          
           <Route path="/tags" element={<Tags />} />
           <Route path="/tags/input" element={<InputTags />} />
+
+          <Route path="/component/face" element={<ComponentFace />} />
 
           <Route path="/testpage" element={<TestPage />} />
           <Route path="/react_default" element={<ReactDefaultPage />}/>

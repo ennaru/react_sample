@@ -6,6 +6,15 @@
     padding: 1em;
 }
 
+.code {
+    font-family: Consolas
+}
+
+.code span {
+    display: block;
+}
+
+
 input {
     padding:0.4em;
     border-radius: 0.6em;

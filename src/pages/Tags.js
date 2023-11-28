@@ -46,6 +46,9 @@ function InputGroup(props) {
 }
 
 function CheckboxGroup(props) {
+  const change = () => {
+
+  };
   return (
     <div className="input-group">
       <h3>{props.title}</h3>
