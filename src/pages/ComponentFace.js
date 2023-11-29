@@ -8,11 +8,14 @@ class TypeA extends Component {
   render() {
     return (
       <div>
-        <p>class로 만든 Component</p>
-        <Function name="TypeA" returnType="function">
-          <Code>  return(</Code>
-          <Code>  // 이곳에는 단 하나의 태그만 가능</Code>
-          <Code>  );</Code>
+        <h3>function - Component</h3>
+        <p>함수로 작성한 Component입니다. 랜더링할 태그를 return() 함수 안에 입력합니다.</p>
+        <Function name="TypeA" prefix="function"
+        content={`
+          return(
+            // 이곳에 랜더링 태그를 입력합니다.
+          );
+        `}>
         </Function>
       </div>
     )
@@ -24,13 +27,17 @@ function TypeB() {
 
   return (
     <div>
-      <p>function으로 만든 Component</p>
-      <Class name="TypeB" extends="Component">
-          <Code>  render() {'{'}</Code>
-          <Code>    return(</Code>
-          <Code>    // 이곳에는 단 하나의 태그만 가능</Code>
-          <Code>    );</Code>
-          <Code>  {'}'}</Code>
+      <h3>class - Component</h3>
+      <p>클래스 변수로 작성한 Component입니다. 랜더링할 태그를 render() 함수 내 return() 함수 안에 입력합니다.</p>
+      <p>상속은 React.Component 를 받으며, 'react'에서 Component import를 선언했다면 'React.' 는 생략할 수 있습니다.</p>
+      <Class name="TypeB" extends="Component"
+      content={`
+        render() {
+          return(
+            // 이곳에 랜더링 태그를 입력합니다.
+          );
+        }
+      `}>
       </Class>
       <div>
         <span>{'function TypeB() { return(); }'}</span>
@@ -43,11 +50,17 @@ function TypeB() {
 // Constatnt
 const TypeC = () => {
 
+  const content = `
+    list.forEach((el) => {
+      console.log(el);
+    });
+  `;
+
   return (
     <div>
       <p>function으로 만든 Component</p>
       <pre>
-          const TypeC = () =>
+        {content}
       </pre>
     </div>
   );

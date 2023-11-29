@@ -6,12 +6,11 @@ export function CodeTemplate(props) {
 }
 
 export function Class(props) {
-    console.log(props);
     const extendsString = props.extends !== undefined ? 'extends ' + props.extends : '';
     return(
         <CodeTemplate>
             <span>class {props.name} {extendsString} {'{'}</span>
-            <span>{props.children}</span>
+            <span>{props.content}</span>
             <span>{'}'}</span>
         </CodeTemplate>
     );
@@ -19,17 +18,17 @@ export function Class(props) {
 
 export function Function(props) {
 
-    let returnType = '';
-    
-    // 익명 함수
+    let prefix = '';
+
+    // 자바스크립트형 함수인지, 다른 함수인지
     if(!props.inner) {
-        returnType = props.returnType !== 'undefined' ? props.returnType : 'function';    
+        prefix = props.prefix !== 'undefined' ? props.prefix : 'function';    
     }
 
     return(
         <CodeTemplate>
-            <span>{props.returnType} {props.name} ({props.parameter}) {'{'}</span>
-            <span>{props.children}</span>
+            <span>{props.prefix} {props.name} ({props.parameter}) {'{'}</span>
+            <span>{props.content}</span>
             <span>{'}'}</span>
         </CodeTemplate>
     );
