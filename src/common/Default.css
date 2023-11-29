@@ -1,5 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;1,100;1,300;1,400;1,700&family=Noto+Sans+KR:wght@100;200;300;400;500;600;700;800;900&display=swap');
 .h1,h2,h3,h4,h5,h6,input,select,p,button,a,label {
-    font-family: 'Noto Sans KR', sans-serif;
+    font-family: 'Lato', 'Noto Sans KR', sans-serif;
 }
 
 .container {
