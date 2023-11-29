@@ -7,29 +7,34 @@ export function CodeTemplate(props) {
 
 export function Class(props) {
     const extendsString = props.extends !== undefined ? 'extends ' + props.extends : '';
+    const line = props.content.split("\n");
     return(
         <CodeTemplate>
-            <span>class {props.name} {extendsString} {'{'}</span>
-            <span>{props.content}</span>
-            <span>{'}'}</span>
+            <span data-line="0">class {props.name} {extendsString} {'{'}</span>
+            {line.map((element, idx) => {
+                return(
+                    <span data-line={idx + 1}> {element}</span>
+                );
+            })}
+            <span data-line={line.length + 1}>{'}'}</span>
         </CodeTemplate>
     );
 }
 
 export function Function(props) {
 
-    let prefix = '';
-
-    // 자바스크립트형 함수인지, 다른 함수인지
-    if(!props.inner) {
-        prefix = props.prefix !== 'undefined' ? props.prefix : 'function';    
-    }
+    const prefix = props.prefix !== 'undefined' ? props.prefix : 'function';    
+    const line = props.content.split("\n");
 
     return(
         <CodeTemplate>
-            <span>{props.prefix} {props.name} ({props.parameter}) {'{'}</span>
-            <span>{props.content}</span>
-            <span>{'}'}</span>
+            <span data-line="0">{prefix} {props.name} ({props.parameter}) {'{'}</span>
+            {line.map((element, idx) => {
+                return(
+                    <span data-line={idx + 1}> {element}</span>
+                );
+            })}
+            <span data-line={line.length + 1}>{'}'}</span>
         </CodeTemplate>
     );
 }

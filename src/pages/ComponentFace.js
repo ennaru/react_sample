@@ -32,6 +32,11 @@ function TypeB() {
       <p>상속은 React.Component 를 받으며, 'react'에서 Component import를 선언했다면 'React.' 는 생략할 수 있습니다.</p>
       <Class name="TypeB" extends="Component"
       content={`
+
+        constructor() {
+          super();
+        }
+
         render() {
           return(
             // 이곳에 랜더링 태그를 입력합니다.
